@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<Header v-if="not_home"/>
+		<Header :class="useHeader===false ? 'hide-lg' : ''"/>
 		<router-view class="page-content" :class="{not_home: 'page-content-not-home'}"/>
 		<Footer/>
 	</div>
@@ -15,15 +15,10 @@
 			Header, Footer
 		},
 		computed:{
-			not_home(){
-				console.log(this.$route.path);
+			useHeader(){
 				if(this.$route.path == '/'){
-					return false
+					return false;
 				}
-				else{
-					return true
-				}
-
 			}
 		}
 	}
@@ -40,17 +35,29 @@
 		text-align: center;
 		padding: 0;
 	}
-	#nav {
-		padding: 30px;
-		a {
-			font-weight: bold;
-			color: #2c3e50;
-			&.router-link-exact-active {
-			color: #42b983;
-			}
+	.page-content{
+		
+	}
+	@media screen and (max-width: 600px){
+		.hide-sm{
+			display: none!important;
+		}
+		.invisible{
+			opacity: 0;
+			display: none!important;
 		}
 	}
+	@media screen and (min-width: 600px){
+		.hide-lg{
+			display: none!important;
+		}
+	}
+	.section-pad{
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
 	.dp-button{
+		text-decoration: none;
 		color: #000000;
 		background-color: transparent;
 		border: 2px solid #f9f9f9;
@@ -61,7 +68,7 @@
 		}
 	}
 	.page-content{
-		margin-bottom: 50px;
+		margin-bottom: 40px;
 		width: 100%;
 	}
 	.page-content-no-home{
@@ -71,7 +78,7 @@
 		padding: 0;
 		list-style-type: none;
 		display: inline-flex;
-		font-size: 12px;
+		font-size: 14px;
 		a{
 			display: inline-block;
 			margin-left: 30px;
@@ -80,9 +87,10 @@
 		}
 	}
 	.section-title{
-		font-size: 18px;
+		font-size: 20px;
 		font-family: 'Oregano';
 		font-style: italic;
+		margin: 0;
 		display: inline-block;
 		&::after{
 			content: '';

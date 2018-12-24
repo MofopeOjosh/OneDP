@@ -4,13 +4,23 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
+	state: {
+	},
+	getters: {
+		smallScreen(){
+			if(screen.width > 600){
+				return false
+			}
+			else{
+				return true
+			}
 
-  },
-  mutations: {
+		}
+	},
+	mutations: {
+		
+	},
+	actions: {
 
-  },
-  actions: {
-
-  }
+	}
 })

@@ -1,22 +1,22 @@
 <template>
   <div class="page-404">
-			<onedp-circle :width="165" :height="127" text_size="t-24" title="Ermm, you shouldn't be here"/>
-			<p class="t-24">No really, there's nothing here for you</p>
+			<dp-circle :width="165" :height="127" text_size="t-24" title="Ermm, you shouldn't be here"/>
+			<p class="t-18">No really, there's nothing here for you</p>
 			<div class="actions">
-				<button class="t-14 dp-button"><i class="fas fa-angle-left"></i> Back</button> 
-				<button class="t-14 dp-button"><i class="fas fa-home"></i> Home</button> 
+				<a href="/" class="t-14 dp-button"><i class="fas fa-angle-left"></i> Back</a> 
+				<a href="/" class="t-14 dp-button"><i class="fas fa-home"></i> Home</a> 
 			</div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import OnedpCircle from '@/components/OnedpCircle.vue';
+import DpCircle from '@/components/DpCircle.vue';
 
 	export default {
 		name: 'Page404',
 		components: {
-			OnedpCircle
+			DpCircle
 		}
 	}
 </script>
@@ -32,8 +32,8 @@ import OnedpCircle from '@/components/OnedpCircle.vue';
 		}
 		.actions{
 			display: flex;
-			justify-content: space-between;
-			width: 400px;
+			// justify-content: space-between;
+			// width: 400px;
 		}
 	}
 </style>

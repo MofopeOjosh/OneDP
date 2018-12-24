@@ -1,12 +1,12 @@
 <template>
-    <div class="onedp-circle" :style="{'height': circle_height, 'width': circle_width, 'background-size': circle_width+' '+circle_height}">
-		<span class="onedp-title" :style="{'width': title_width,}" :class="text_size">{{title}}</span>
+    <div class="dp-circle" :style="{'height': circle_height, 'width': circle_width, 'background-size': circle_width+' '+circle_height}">
+		<span class="dp-title" :style="{'width': title_width,}" :class="text_size">{{title}}</span>
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'OnedpCircle',
+	name: 'DpCircle',
 	props: {
 		'height': Number,
 		'width': Number,
@@ -31,16 +31,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 	@import url('https://fonts.googleapis.com/css?family=Oregano');
-	.onedp-circle{
+	.dp-circle{
 		overflow: hidden;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-image: url('../assets/onedp-circle.png');
+		background-image: url('../assets/dp-circle.png');
 		text-align: center;
 		background-repeat: no-repeat;
 	}
-	.onedp-title{
+	.dp-title{
 		margin: 0;
 		font-family: 'Oregano';
 		font-style: italic;
