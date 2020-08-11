@@ -30,7 +30,7 @@ export default new Router({
 			component: () => import('./views/About.vue')
 		},
 		{
-			path: '/404',
+			path: '*',
 			name: '404',
 			component: () => import('./views/Page404.vue')
 		}

@@ -1,24 +1,25 @@
 <template>
 	<div id="app">
-		<Header :class="useHeader===false ? 'hide-lg' : ''"/>
-		<router-view class="page-content" :class="{not_home: 'page-content-not-home'}"/>
-		<Footer/>
+		<AppHeader :home="home"/>
+		<router-view class="page-content"/>
+		<AppFooter/>
 	</div>
 </template>
 
 <script>
-	import Header from '@/components/Header.vue';
-	import Footer from '@/components/Footer.vue';
+	import AppHeader from '@/components/AppHeader.vue';
+	import AppFooter from '@/components/AppFooter.vue';
 
 	export default {
 		components: {
-			Header, Footer
+			AppHeader, AppFooter
 		},
 		computed:{
-			useHeader(){
+			home(){
 				if(this.$route.path == '/'){
-					return false;
+					return true;
 				}
+				return false;
 			}
 		}
 	}
@@ -27,17 +28,90 @@
 <style lang="scss">
 	html, body{
 		margin: 0;
-	}
-	#app {
 		font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-		text-align: center;
 		padding: 0;
+		font-size: 18px;
 	}
-	.page-content{
+	
+	.__hide{
+		display: none!important;
+	}
+	.__row{
 		
+		.split-left, .split-right{
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-self: stretch;
+		}
+		
+		.split-left{
+			align-items: flex-start;
+		}
+		
+		.card-wrapper{
+			width: 250px;
+			border-radius: 5px;
+			transition: all .2s ease-in;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 25px 10px;
+			
+			.card-content{
+				max-width: 70%;
+				text-align: center;
+				
+				.card-title{
+					margin: 25px auto;
+					font-weight: 700;
+				} 
+				
+				.tags{
+					
+					span{
+						display: inline-flex;
+						align-items: center;
+						padding-right: 8px;
+					}
+					
+					i{
+						padding-right: 3px;
+					}
+				}
+			}		
+		}
+		
+		.card-wrapper-norm{
+			background-color: #F9F9F9;
+			
+			&:hover{
+				background-color: #FFFFFF;
+				box-shadow: -5px 10px 5px #F9F9F9, 
+							-5px 10px 10px #F9F9F9, 
+							-5px -5px 10px #F9F9F9, 
+							5px 5px 10px #F9F9F9;
+			}
+		}
+
+		.card-wrapper-alt{
+			background-color: #FFFFFF;
+			box-shadow: -5px 10px 5px #F9F9F9, 
+						-5px 10px 10px #F9F9F9, 
+						-5px -5px 10px #F9F9F9, 
+						5px 5px 10px #F9F9F9;
+			
+			&:hover{
+				background-color: #F9F9F9;
+				box-shadow: none;
+			}
+		}		
 	}
+	
 	@media screen and (max-width: 600px){
 		.hide-sm{
 			display: none!important;
@@ -47,49 +121,31 @@
 			display: none!important;
 		}
 	}
+	
 	@media screen and (min-width: 600px){
 		.hide-lg{
 			display: none!important;
 		}
 	}
-	.section-pad{
-		padding-top: 100px;
-		padding-bottom: 100px;
-	}
-	.dp-button{
+	
+	.mo-button{
 		text-decoration: none;
 		color: #000000;
 		background-color: transparent;
 		border: 2px solid #f9f9f9;
 		border-radius: 4px;
+		font-size: 14px;
 		padding: 5px 15px;
 		i{
 			padding-right: 5px;
 		}
 	}
-	.page-content{
-		margin-bottom: 40px;
-		width: 100%;
-	}
-	.page-content-no-home{
-		margin-top: 50px;
-	}
-	.header-links{
-		padding: 0;
-		list-style-type: none;
-		display: inline-flex;
-		font-size: 14px;
-		a{
-			display: inline-block;
-			margin-left: 30px;
-			text-decoration: none;
-			color: #000000;
-		}
-	}
+	
 	.section-title{
-		font-size: 20px;
 		font-family: 'Oregano';
 		font-style: italic;
+		font-weight: 500;
+		letter-spacing: 0.1rem;
 		margin: 0;
 		display: inline-block;
 		&::after{

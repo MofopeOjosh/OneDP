@@ -1,14 +1,14 @@
 <template>
-	<ul class="social header-links">
-		<li><a href="/onedp" target="_blank">
+	<ul class="nav-links">
+		<a href="/onedp" target="_blank">
 			<i class="fab fa-github"></i>
-		</a> </li>
-		<li><a href="/onewp" target="_blank">
+		</a> 
+		<a href="/onewp" target="_blank">
 			<i class="fab fa-medium"></i>
-		</a></li>
-		<li><a href="/onemp" target="_blank">
+		</a>
+		<a href="/onemp" target="_blank">
 			<i class="fab fa-twitter"></i>
-		</a></li>
+		</a>
 	</ul>
 </template>
 
@@ -21,7 +21,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-	.social{
+	.nav-links{
+		a{
+			color: #000000;
+			margin-left: 10px;
+		}
 		a:hover{
 			color: #652D92;
 		}
